@@ -62,45 +62,9 @@ function domain_neighbor(my_id, nproc, nxd, nyd)
 end
 
 
-function domain_coords!(
-    xs::T,
-    ys::T,
-    xe::T,
-    ye::T,
-    xcell,
-    ycell,
-    nx_domains,
-    ny_domains,
-) where {T}
-
-    ys[1:nx_domains] .= 3
-    ye[1:nx_domains] = ys[1:nx_domains] .+ ycell .- 1
-
-    for i = 1:ny_domains-1
-        ys[i*nx_domains+1:(i+1)*nx_domains] =
-            ys[(i-1)*nx_domains+1:i*nx_domains] .+ ycell .+ 2
-        ye[i*nx_domains+1:(i+1)*nx_domains] =
-            ys[i*nx_domains+1:(i+1)*nx_domains] .+ ycell .- 1
-    end
-
-    for i = 1:ny_domains
-        xs[(i-1)*nx_domains+1] = 3
-        #Here, xe(i*x_domains) = 2+xcell-1
-        xe[(i-1)*nx_domains+1] = xs[(i-1)*nx_domains+1] + xcell - 1
-    end
-
-    for i = 1:ny_domains
-        for j = 2:nx_domains
-            xs[(i-1)*nx_domains+j] = xs[(i-1)*nx_domains+(j-1)] + xcell + 2
-            xe[(i-1)*nx_domains+j] = xs[(i-1)*nx_domains+j] + xcell - 1
-        end
-    end
-
-    return nothing
-
-end
-
-
+"""
+Calculate starting & ending indices of subdomains
+"""
 function domain_coords!(
     xindex::T,
     yindex::T,
