@@ -1,6 +1,6 @@
 # KitDistributed
 
-![CI](https://img.shields.io/github/workflow/status/vavrines/KitDistributed.jl/CI)
+![CI](https://img.shields.io/github/actions/workflow/status/vavrines/KitDistributed.jl/ci.yml?branch=main)
 [![codecov](https://img.shields.io/codecov/c/github/vavrines/KitDistributed.jl)](https://codecov.io/gh/vavrines/KitDistributed.jl)
 [![](https://img.shields.io/badge/docs-stable-blue.svg)](https://xiaotianbai.com/Kinetic.jl/stable/)
 
