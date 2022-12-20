@@ -1,2 +1,3 @@
 Manifest.toml
-dev/
+dev/.ipynb_checkpoints
+dev/diffusion/.ipynb_checkpoints
